@@ -6,10 +6,12 @@ body{
     background-color: #8b8b91;
     background-image: url("https://media4.giphy.com/media/2tNvsKkc0qFdNhJmKk/giphy.gif?cid=ecf05e47bodynrrbn9goatbm1b2mmjqsoaxjt1cjmfazux42&rid=giphy.gif&ct=g");
     background-size: cover;
+    overflow:hidden;
+    height: 100vh;
 }
 #channel {
     display: flex;
-    height: 90vh;
+    height: 100%;
     margin: auto;
     width: 50%;
     background-color: #b4b4bcc2;
@@ -104,15 +106,17 @@ form {
     border-bottom-right-radius: 0px !important;
     -webkit-border-bottom-right-radius: 0px !important;
     -moz-border-radius-bottomright: 0px !important;
-    font-size: 15px;
+    padding-left: 10px;
 }
 .hidden{
-    display: none;
+    display: none !important;
     height: 0vh !important;
 }
 #userName{
     display: flex;
-    height: 100vh;
+    align-content: center;
+    height: fit-content;
+    height: calc(100vh - 90px);
 }
 #user{
     height: 30px;
@@ -120,7 +124,6 @@ form {
 }
 #user-input{
     width:100%;
-    margin-top: 10px;
     border-radius: 10px;
     border-style: none;
     background-color:#b4b4bcc2;
@@ -132,4 +135,21 @@ form {
     border-bottom-right-radius: 0px !important;
     -webkit-border-bottom-right-radius: 0px !important;
     -moz-border-radius-bottomright: 0px !important;
+    padding-left: 10px;
+}
+
+#title{
+    display: flex;
+    justify-content: center;
+    color:#747474c2;
+    font-size: 40px;
+    margin: 10px !important;
+    font-family:'Courier New', Courier, monospace;
+}
+
+#main{
+    height: max-content;
+    display: flex;
+    height: calc(100vh - 90px);
+    flex-direction: column;
 }
