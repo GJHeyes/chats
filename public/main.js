@@ -26,6 +26,7 @@ chatForm.addEventListener('submit', function (event) {
     })
     ws.send(body)
     event.target.reset()
+    //otherChats.scrollIntoView(false)
 })
 
 ws.addEventListener('message', chat => {
@@ -90,6 +91,7 @@ function renderChats () {
         })
     })
     .catch(console.error)
+    otherChats.scrollIntoView(false)
 }
 
 function getUser(){
