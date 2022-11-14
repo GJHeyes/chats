@@ -115,17 +115,3 @@ function getUser(){
 getUser()
 
 renderChats()
-
-// chatForm.addEventListener('submit', function (event) {
-//     event.preventDefault()
-//     const formData = new FormData(event.target)
-//     const msg = formData.get('chat')
-//     ws.send(msg)
-//     event.target.reset()
-// })
-
-// ws.addEventListener('message', msg => {
-//     const el = document.createElement('li')
-//     el.innerHTML = msg.data
-//     chats.appendChild(el)
-// })

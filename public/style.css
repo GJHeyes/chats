@@ -3,7 +3,7 @@ body{
 }
 #channel {
     display: flex;
-    height: 80vh;
+    height: 95vh;
     margin: auto;
     width: 50%;
     background-color: #b4b4bc;
@@ -40,13 +40,15 @@ form {
 .myChats{
     align-self: flex-end;
     background-color: #2294fb; 
-    border-radius: 5px;
+    border-bottom-right-radius: 0px !important;
+    -webkit-border-bottom-right-radius: 0px !important;
+    -moz-border-radius-bottomright: 0px !important;
 }
 .chatting{
     margin-left: 2.5% !important;
     margin-right: 2.5% !important;
     max-width: 40%;
-    padding: 5px;
+    padding: 10px;
     margin: 2px;
     border-radius: 5px;
     padding: 5px;
@@ -57,6 +59,10 @@ form {
 }
 .otherChats{
     background-color:#747474;
+    border-bottom-left-radius: 2px;
+    border-bottom-left-radius: 0px !important;
+    -webkit-border-bottom-left-radius: 0px !important;
+    -moz-border-radius-bottomleft: 0px !important;
 }
 .chatButton{
     background-color: #2294fb; 
@@ -72,7 +78,7 @@ form {
 .chatText{
     width:100%;
     margin-top: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     border-style: none;
     background-color:#b4b4bc;
 }
