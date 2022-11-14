@@ -41,7 +41,7 @@ form {
 }
 .myChats{
     align-self: flex-end;
-    background-color: #2294fb; 
+    background-color: #2294fbc2; 
     border-bottom-right-radius: 0px !important;
     -webkit-border-bottom-right-radius: 0px !important;
     -moz-border-radius-bottomright: 0px !important;
@@ -60,14 +60,14 @@ form {
     overflow-wrap: break-word;
 }
 .otherChats{
-    background-color:#747474;
+    background-color:#747474c2;
     border-bottom-left-radius: 2px;
     border-bottom-left-radius: 0px !important;
     -webkit-border-bottom-left-radius: 0px !important;
     -moz-border-radius-bottomleft: 0px !important;
 }
 .chatButton{
-    background-color: #2294fb; 
+    background-color: #2294fbc2; 
     height: 32px !important;
     width: 32px !important;
     color: white;
@@ -91,7 +91,7 @@ form {
     margin-top: 10px;
     border-radius: 10px;
     border-style: none;
-    background-color:#b4b4bc;
+    background-color:#b4b4bcc2;
     border-top-right-radius: 0px !important;
     -webkit-border-right-left-radius: 0px !important;
     -moz-border-radius-topright: 0px !important;
