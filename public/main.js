@@ -32,15 +32,11 @@ ws.addEventListener('message', chat => {
     const el = document.createElement('li')
     const chatData = JSON.parse(chat.data)
     el.innerHTML = chatData.chat
-    console.log(chatData.UserId)
     const localUserId = (JSON.parse(localStorage.getItem('user'))).id
     if(chatData.UserId === localUserId){
         el.classList = ('myChats chatting')
-        //myChats.appendChild(el)
-        
     }else{
         el.classList = ('otherChats chatting')
-        //otherChats.appendChild(el)
     }
     otherChats.appendChild(el)
 })
@@ -72,12 +68,10 @@ userForm.addEventListener('submit', function (event) {
 })
 
 function renderChats () {
-   // myChats.innerHTML = ""
     otherChats.innerHTML = ""
     fetch('/chats')
     .then(res => res.json())
     .then(users => {
-        console.log(users)
         users.forEach(chats => {
             const li = document.createElement('li')
             li.innerHTML = `${chats.chat}`
@@ -89,10 +83,8 @@ function renderChats () {
             }
             if(chats.UserId === localUserId){
                 li.classList = ('myChats chatting')
-                //myChats.appendChild(li)
             }else{
                 li.classList = ('otherChats chatting')
-                //
             }
             otherChats.appendChild(li)
         })
