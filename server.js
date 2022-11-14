@@ -29,19 +29,9 @@ app.get('/chats', async (req, res) => {
 })
 
 app.post('/chats', async (req, res) => {
-    console.log(req.body)
     const user = await User.findByPk(req.body.UserId)
     const chat = await Chat.create(req.body)
     await user.addChat(chat)
-    //const chat = await user.addChat(req.body.chat)
-    res.send(chat)
-    console.log(req.body)
-    // . const user = await User.findByPk(req.body.UserId)
-    
-    //
-   // const addchat = await user.addChat(req.body.chat)
-    
-    //res.send(addchat)
 })
 
 app.ws('/chats', (ws, req) => {

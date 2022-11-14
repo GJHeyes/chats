@@ -1,8 +1,6 @@
 const ws = new WebSocket('ws://localhost:3000/chats')
-
 const chatForm = document.getElementById('chat')
 const otherChats = document.getElementById('chats')
-//const myChats = document.getElementById('myChats')
 const userForm = document.getElementById('user')
 const userMain = document.getElementById('userName')
 const main = document.getElementById('main')
@@ -26,13 +24,13 @@ chatForm.addEventListener('submit', function (event) {
     })
     ws.send(body)
     event.target.reset()
+    //newv.scrollIntoView(false)
 })
 
 ws.addEventListener('message', chat => {
     const el = document.createElement('li')
     const chatData = JSON.parse(chat.data)
     el.innerHTML = chatData.chat
-    console.log(chatData.UserId)
     const localUserId = (JSON.parse(localStorage.getItem('user'))).id
     if(chatData.UserId === localUserId){
         el.classList = ('myChats chatting')
@@ -43,6 +41,7 @@ ws.addEventListener('message', chat => {
         //otherChats.appendChild(el)
     }
     otherChats.appendChild(el)
+    
 })
 
 userForm.addEventListener('submit', function (event) {
@@ -77,7 +76,6 @@ function renderChats () {
     fetch('/chats')
     .then(res => res.json())
     .then(users => {
-        console.log(users)
         users.forEach(chats => {
             const li = document.createElement('li')
             li.innerHTML = `${chats.chat}`
