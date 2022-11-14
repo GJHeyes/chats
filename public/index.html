@@ -14,15 +14,19 @@
             display: flex;
             height: 80vh;
             margin: auto;
-            width: 50vw;
+            width: 50%;
             background-color: #b4b4bc;
             overflow: scroll;
             justify-content:space-around;
             flex-direction: row;
+            border-radius: 10px;
+        }
+        ol{
+            padding-inline-start: 0px !important;
         }
         form {
             margin: auto;
-            width: 20vw;  
+            width: 50%;  
             display: flex;
             justify-content: center;
             justify-content: space-between;
@@ -32,10 +36,9 @@
             display: flex;
             flex-direction: column;
             list-style-type: none; 
-            padding-inline-end: 40px;
         }
         #myChats{
-            padding-inline-end: 40px;
+            margin-left: 40px;
             display: flex;
             flex-direction: column;
             align-items: flex-end;
@@ -43,11 +46,13 @@
         }
         .myChats{
             align-self: flex-end;
-            text-align: end;
             background-color: #2294fb; 
             border-radius: 5px;
         }
         .chatting{
+            margin-left: 5% !important;
+            margin-right: 5% !important;
+            max-width: 40%;
             padding: 5px;
             margin: 2px;
             border-radius: 5px;
@@ -55,6 +60,7 @@
             width: fit-content;
             height: fit-content;
             color: white;
+            overflow-wrap: break-word;
         }
         .otherChats{
             background-color:#747474;
