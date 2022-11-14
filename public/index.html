@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GMessenger</title>
+    <script src="/main.js" defer></script>
+    <style>
+        body{
+            background-color: #8b8b91;
+        }
+        #channel {
+            display: flex;
+            height: 80vh;
+            margin: auto;
+            width: 50vw;
+            background-color: #b4b4bc;
+            overflow: scroll;
+            justify-content:space-around;
+            flex-direction: row;
+        }
+        form {
+            margin: auto;
+            width: 20vw;  
+            display: flex;
+            justify-content: center;
+            justify-content: space-between;
+        }
+        .chat{
+            width:100%;
+            display: flex;
+            flex-direction: column;
+            list-style-type: none; 
+            padding-inline-end: 40px;
+        }
+        #myChats{
+            padding-inline-end: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+        }
+        .myChats{
+            align-self: flex-end;
+            text-align: end;
+            background-color: #2294fb; 
+            border-radius: 5px;
+        }
+        .chatting{
+            padding: 5px;
+            margin: 2px;
+            border-radius: 5px;
+            padding: 5px;
+            width: fit-content;
+            height: fit-content;
+            color: white;
+        }
+        .otherChats{
+            background-color:#747474;
+        }
+        .chatButton{
+            background-color: #2294fb; 
+            color: white;
+            border-radius: 50px;
+            width: fit-content;
+            height: fit-content;
+            padding-bottom:1px;
+            border-style: none;
+            align-self: flex-end;
+            text-align: center;
+        }
+        .chatText{
+            width:100%;
+            margin-top: 10px;
+            border-radius: 5px;
+            border-style: none;
+            background-color:#b4b4bc;
+        }
+        .hidden{
+            display: none;
+            height: 0vh !important;
+        }
+        #userName{
+            display: flex;
+            height: 100vh;
+        }
+        #user{
+            height: 30px;
+            align-items: flex-end !important;
+        }
+        #user-input{
+            width:100%;
+            margin-top: 10px;
+            border-radius: 5px;
+            border-style: none;
+            background-color:#b4b4bc;
+            height: 15px;
+        
+        }
+    </style>
+</head>
+<body>
+    <section id="main" class="hidden">
+        <section id="channel">
+            <ol id="chats" class="chat"></ol>
+        </section>
+        <section>
+            <form id="chat">
+                <input name="chat" class="chatText" required/>
+                <button class="chatButton">↑</button>
+            </form>
+        </section>
+    </section>
+    <section id="userName">
+        <form id="user">
+            <input name="user" id="user-input" placeholder="Enter Your Name..." required/>
+            <button class="chatButton">↑</button>
+        </form>
+    </section>
+</body>
+</html>
