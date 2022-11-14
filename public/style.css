@@ -1,12 +1,14 @@
 body{
     background-color: #8b8b91;
+    background-image: url("https://media4.giphy.com/media/2tNvsKkc0qFdNhJmKk/giphy.gif?cid=ecf05e47bodynrrbn9goatbm1b2mmjqsoaxjt1cjmfazux42&rid=giphy.gif&ct=g");
+    background-size: cover;
 }
 #channel {
     display: flex;
-    height: 95vh;
+    height: 90vh;
     margin: auto;
     width: 50%;
-    background-color: #b4b4bc;
+    background-color: #b4b4bcc2;
     overflow: scroll;
     justify-content:space-around;
     flex-direction: column;
@@ -66,6 +68,8 @@ form {
 }
 .chatButton{
     background-color: #2294fb; 
+    height: 32px !important;
+    width: 32px !important;
     color: white;
     border-radius: 50px;
     width: fit-content;
@@ -74,13 +78,27 @@ form {
     border-style: none;
     align-self: flex-end;
     text-align: center;
+    border-top-left-radius: 0px !important;
+    -webkit-border-top-left-radius: 0px !important;
+    -moz-border-radius-topleft: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    -webkit-border-bottom-left-radius: 0px !important;
+    -moz-border-radius-bottomleft: 0px !important;
 }
 .chatText{
     width:100%;
+    height: 30px;
     margin-top: 10px;
     border-radius: 10px;
     border-style: none;
     background-color:#b4b4bc;
+    border-top-right-radius: 0px !important;
+    -webkit-border-right-left-radius: 0px !important;
+    -moz-border-radius-topright: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    -webkit-border-bottom-right-radius: 0px !important;
+    -moz-border-radius-bottomright: 0px !important;
+    font-size: 15px;
 }
 .hidden{
     display: none;
