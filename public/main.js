@@ -1,17 +1,17 @@
-const ws = new WebSocket('ws://localhost:3000/chats')
-const chatForm = document.getElementById('chat')
-const otherChats = document.getElementById('chats')
-const userForm = document.getElementById('user')
-const userMain = document.getElementById('userName')
-const main = document.getElementById('main')
+const ws = new WebSocket('ws://localhost:3000/chats'),
+    chatForm = document.getElementById('chat'),
+    otherChats = document.getElementById('chats'),
+    userForm = document.getElementById('user'),
+    userMain = document.getElementById('userName'),
+    main = document.getElementById('main');
 
 chatForm.addEventListener('submit', function (event) {
     
     event.preventDefault()
-    const formData = new FormData(event.target)
-    const chat = formData.get('chat')
-    const user = JSON.parse(localStorage.getItem("user"))
-    const body = JSON.stringify({chat, status: 0,UserId: user.id})
+    const formData = new FormData(event.target),
+        chat = formData.get('chat'),
+        user = JSON.parse(localStorage.getItem("user")),
+        body = JSON.stringify({chat, status: 0,UserId: user.id});
     fetch('/chats', {
         method: 'POST',
         headers: {
@@ -30,10 +30,10 @@ chatForm.addEventListener('submit', function (event) {
 })
 
 ws.addEventListener('message', chat => {
-    const el = document.createElement('li')
-    const chatData = JSON.parse(chat.data)
+    const el = document.createElement('li'),
+        chatData = JSON.parse(chat.data),
+        localUserId = (JSON.parse(localStorage.getItem('user'))).id;
     el.innerHTML = chatData.chat
-    const localUserId = (JSON.parse(localStorage.getItem('user'))).id
     if(chatData.UserId === localUserId){
         el.classList = ('myChats chatting')
     }else{
@@ -45,8 +45,8 @@ ws.addEventListener('message', chat => {
 
 userForm.addEventListener('submit', function (event) {
     event.preventDefault()
-    const formData = new FormData(event.target)
-    const username = formData.get('user').toString()
+    const formData = new FormData(event.target),
+         username = formData.get('user').toString();
     let userID = undefined
     try{
         localUserId = (JSON.parse(localStorage.getItem('user'))).id
@@ -67,6 +67,7 @@ userForm.addEventListener('submit', function (event) {
     userForm.classList.add('hidden')
     userMain.classList.add('hidden')
     main.classList.remove('hidden')
+    renderChats()
 })
 
 function renderChats () {
@@ -75,8 +76,12 @@ function renderChats () {
     .then(res => res.json())
     .then(users => {
         users.forEach(chats => {
-            const li = document.createElement('li')
-            li.innerHTML = `${chats.chat}`
+            const msg = document.createElement('li')
+            const msgName = document.createElement('li')
+            msg.innerHTML = `${chats.chat}`
+            msgName.innerHTML = `${chats.User.username} @ ${new Date(chats.createdAt).toLocaleTimeString('en-GB',
+            {hour: '2-digit', minute:'2-digit'})} on 
+            ${new Date(chats.createdAt).toLocaleDateString('en-GB',{ year: 'numeric', month: 'long', day: 'numeric' })}`
             let localUserId 
             try{
                 localUserId = (JSON.parse(localStorage.getItem('user'))).id
@@ -84,11 +89,14 @@ function renderChats () {
                 localUserId = ""
             }
             if(chats.UserId === localUserId){
-                li.classList = ('myChats chatting')
+                msg.classList = ('myChats chatting')
+                msgName.classList = ('myName hidden toolTip')
             }else{
-                li.classList = ('otherChats chatting')
+                msg.classList = ('otherChats chatting')
+                msgName.classList = ('otherName hidden toolTip')
             }
-            otherChats.appendChild(li)
+            otherChats.appendChild(msg)
+            otherChats.appendChild(msgName)
             otherChats.scrollIntoView(false)
         })
     })
@@ -101,9 +109,15 @@ function getUser(){
         userForm.classList.add('hidden')
         userMain.classList.add('hidden')
         main.classList.remove('hidden')
+        renderChats()
     }
 }
 
+document.addEventListener('click', (e) =>{ //e for event
+    if(e.target.matches('.chatting')){
+        e.target.nextSibling.classList.toggle('hidden')
+    }
+})
+
 getUser()
 
-renderChats()
