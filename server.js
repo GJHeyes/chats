@@ -57,8 +57,7 @@ app.post('/users', async (req, res) => {
     }else{
         const user = await User.create(req.body)
         res.send(user)
-    }
-    
+    } 
 })
 
 app.get('/users', async (req, res) => {

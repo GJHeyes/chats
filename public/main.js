@@ -25,7 +25,7 @@ userForm.addEventListener('submit', function (event) {
     event.preventDefault()
     const formData = new FormData(event.target),
          username = formData.get('user').toString();
-    let userID = undefined
+    let localUserId = undefined
     try{
         localUserId = (JSON.parse(localStorage.getItem('user'))).id
     }catch(error){
@@ -36,7 +36,7 @@ userForm.addEventListener('submit', function (event) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({username, status: 0,userID: userID})
+        body: JSON.stringify({username, status: 0,userID: localUserId})
     })
     .then(res => res.json())
     .then(user =>{
@@ -90,12 +90,14 @@ async function renderChats () {
 }
 
 function getUser(){
-    const user = localStorage.getItem("user")
+    const username = document.getElementById('user-input')
+    const user = JSON.parse(localStorage.getItem("user"))
     if(user){
-        userForm.classList.add('hidden')
-        userMain.classList.add('hidden')
-        main.classList.remove('hidden')
-        renderChats()
+        username.value = user.username
+        
+        // userForm.classList.add('hidden')
+        // userMain.classList.add('hidden')
+        // main.classList.remove('hidden')
     }
 }
 
