@@ -14,6 +14,8 @@ body{
     background-size: cover;
     overflow:hidden;
     height: 100vh;
+    max-height: 100vh;
+    min-height: -webkit-fill-available;
 }
 #channel {
     display: flex;
@@ -185,6 +187,9 @@ form {
     padding-left: 10px;
     color: rgba(255, 255, 255, 0.7);
     align-self: center;
+}
+#chat{
+    margin-top: 10px !important;
 }
 
 #title{
