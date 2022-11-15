@@ -11,7 +11,7 @@
 body{
     background-color: #8b8b91;
     background-image: url("https://media4.giphy.com/media/2tNvsKkc0qFdNhJmKk/giphy.gif?cid=ecf05e47bodynrrbn9goatbm1b2mmjqsoaxjt1cjmfazux42&rid=giphy.gif&ct=g");
-    background-size:100vh;
+    background-size:100%;
     overflow:hidden;
     height: 100vh;
     max-height: 100vh;
