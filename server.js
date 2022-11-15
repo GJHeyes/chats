@@ -21,7 +21,7 @@ Chat.belongsTo(User)
 User.hasMany(Chat)
 
 app.use(express.json())
-app.use(express.static('public'))
+app.use(express.static())
 
 app.get('/chats', async (req, res) => {
     const chats = await Chat.findAll({include: {model: User, required:true}})
