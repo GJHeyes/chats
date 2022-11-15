@@ -203,16 +203,22 @@ form {
 }
 
 #main{
-    height: max-content;
     display: flex;
     height: calc(100vh - 90px);
     flex-direction: column;
 }
 
 @media (max-width: 480px){
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+   
+    #main{
+        height: calc(100vh - 66.5px);
+    }
     #channel {
-        max-height: 80%;
-        min-height: 40%;
+        height:-webkit-fill-available;
         width: 90%;
         margin-bottom: 1vh !important;
         margin-top: 1vh !important;
@@ -225,10 +231,11 @@ form {
     }
     #chat{
         position: sticky ;
-        width: 90%
+        width: 90%;
+        margin-top:0 !important;
+        margin-bottom: 10px !important;
     }
     #title{
-        margin-top: 7vh !important;
         position: sticky;
     }
     #user-input{
