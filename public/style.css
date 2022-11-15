@@ -20,7 +20,7 @@ body{
     height: 100%;
     margin: auto;
     width: 50%;
-    background-color: #b4b4bcc2;
+    background-color: #b4b4bc7e;
     overflow:auto;
     justify-content:flex-start;
     flex-direction: column;
@@ -55,7 +55,7 @@ form {
 }
 .myChats{
     align-self: flex-end;
-    background-color: #2294fbc2; 
+    background-color: #2294fb7e; 
     border-bottom-right-radius: 0px !important;
     -webkit-border-bottom-right-radius: 0px !important;
     -moz-border-radius-bottomright: 0px !important;
@@ -75,7 +75,7 @@ form {
     overflow-wrap: break-word;
 }
 .otherChats{
-    background-color:#747474c2;
+    background-color:#7474747e;
     border-bottom-left-radius: 2px;
     border-bottom-left-radius: 0px !important;
     -webkit-border-bottom-left-radius: 0px !important;
@@ -83,7 +83,7 @@ form {
 
 }
 .chatButton{
-    background-color: #2294fbc2; 
+    background-color: #2294fb7e; 
     height: 30px !important;
     width: 30px !important;
     color: white;
@@ -109,7 +109,7 @@ form {
     margin-top: 10px;
     border-radius: 10px;
     border-style: none;
-    background-color:#b4b4bcc2;
+    background-color:#b4b4bc7e;
     border-top-right-radius: 0px !important;
     -webkit-border-right-left-radius: 0px !important;
     -moz-border-radius-topright: 0px !important;
@@ -136,7 +136,7 @@ form {
     width:100%;
     border-radius: 10px;
     border-style: none;
-    background-color:#b4b4bcc2;
+    background-color:#b4b4bc7e;
     height: 30px;
     font-size: 15px;
     border-top-right-radius: 0px !important;
@@ -149,9 +149,10 @@ form {
 }
 
 #title{
+    /*c2*/
     display: flex;
     justify-content: center;
-    color:#747474c2;
+    color:#7474747e;
     font-size: 40px;
     margin: 10px !important;
     font-family:'Courier New', Courier, monospace;
