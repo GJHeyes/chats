@@ -1,13 +1,12 @@
 const ws = new WebSocket('ws://localhost:3000/chats')
-
 const chatForm = document.getElementById('chat')
 const otherChats = document.getElementById('chats')
-//const myChats = document.getElementById('myChats')
 const userForm = document.getElementById('user')
 const userMain = document.getElementById('userName')
 const main = document.getElementById('main')
 
 chatForm.addEventListener('submit', function (event) {
+    
     event.preventDefault()
     const formData = new FormData(event.target)
     const chat = formData.get('chat')
@@ -25,8 +24,9 @@ chatForm.addEventListener('submit', function (event) {
         event.target.reset()
     })
     ws.send(body)
+    
     event.target.reset()
-    //otherChats.scrollIntoView(false)
+    
 })
 
 ws.addEventListener('message', chat => {
@@ -40,6 +40,7 @@ ws.addEventListener('message', chat => {
         el.classList = ('otherChats chatting')
     }
     otherChats.appendChild(el)
+    otherChats.scrollIntoView(false)
 })
 
 userForm.addEventListener('submit', function (event) {
@@ -88,10 +89,10 @@ function renderChats () {
                 li.classList = ('otherChats chatting')
             }
             otherChats.appendChild(li)
+            otherChats.scrollIntoView(false)
         })
     })
     .catch(console.error)
-    otherChats.scrollIntoView(false)
 }
 
 function getUser(){

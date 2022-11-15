@@ -17,7 +17,7 @@ body{
     width: 50%;
     background-color: #b4b4bcc2;
     overflow:scroll;
-    justify-content:space-around;
+    justify-content:flex-start;
     flex-direction: column;
     border-radius: 10px;
   
@@ -37,11 +37,9 @@ form {
     display: flex;
     flex-direction: column;
     list-style-type: none; 
-    height: 100%;
     margin: 0 !important;
     padding-top:5px !important;
     padding-bottom:5px !important;
-    overflow: scroll;
 }
 #myChats{
     margin-left: 40px;
