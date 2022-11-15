@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const expressWs = require('express-ws')(app)
 
-const { Sequelize, Model, DataTypes } = require('sequelize')
+const { Sequelize, Model, DataTypes, where } = require('sequelize')
 const sequelize = new Sequelize('sqlite:chats.sqlite')
 
 class Chat extends Model {}
@@ -50,9 +50,8 @@ app.ws('/chats', (ws, req) => {
 })
 
 app.post('/users', async (req, res) => {
-    const previousUser = await User.findByPk(req.body.userID)
-    console.log(previousUser.username === req.body.username)
-    if(previousUser.username === req.body.username){
+    const previousUser = await User.findOne({ where: { id: req.body.userID} })
+    if(previousUser !== null && JSON.stringify(previousUser.username).toLowerCase() === JSON.stringify(req.body.username).toLowerCase()){
         previousUser.update({username: req.body.username})
         res.send(previousUser)
     }else{
