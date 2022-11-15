@@ -14,6 +14,8 @@ const ws = new WebSocket("wsUrl"),
             ws.send('{type:"ping"}');
         }, 55000);
     };
+
+    
 chatForm.addEventListener('submit', function (event) {
     
     event.preventDefault()
