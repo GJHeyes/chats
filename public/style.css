@@ -93,7 +93,8 @@ form {
     padding-bottom:1px;
     border-style: none;
     align-self: flex-end;
-    text-align: center;
+    text-align:center;
+    padding-left: 4px !important;
     border-top-left-radius: 0px !important;
     -webkit-border-top-left-radius: 0px !important;
     -moz-border-radius-topleft: 0px !important;
