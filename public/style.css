@@ -230,17 +230,23 @@ form {
         font-size: 2.5vw;
     }
     #chat{
-        position: sticky ;
         width: 90%;
         height: 30px;
         margin-top:0 !important;
-        margin-bottom: 10px !important;
         padding: 0;
+    }
+    .chatText{
+        height: -webkit-fill-available;
     }
     #title{
         position: sticky;
     }
+    .chatButton{
+        align-self: auto;
+        height: -webkit-fill-available !important;
+    }
     #user-input{
+        height: -webkit-fill-available;
         width: 100%
     }
     #user{
