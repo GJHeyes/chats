@@ -60,34 +60,33 @@ userForm.addEventListener('submit', function (event) {
 })
 
 ws.addEventListener('message', chat => {
-    
     let chats = JSON.parse(chat.data).chatInfo
-   console.log(chats)
     const user = JSON.parse(chat.data).userData.User
-    console.log(user)
+    chats.User = user
+    addChat(chats)
+})
+
+function addChat(chats){
     const msg = document.createElement('li')
     const msgName = document.createElement('li')
-    msg.innerHTML =  `${chats.chat}`
-    msgName.innerHTML =  `${user.username} | ${new Date(chats.createdAt).toLocaleTimeString('en-GB',
-    {hour: '2-digit', minute:'2-digit'})} | 
-    ${new Date(chats.createdAt).toLocaleDateString('en-GB',{ year: 'numeric', year:'2-digit', month: 'short', day: 'numeric' })}`
-    let localUserId 
-    try{
-        localUserId =  (JSON.parse(localStorage.getItem('user'))).id
-    }catch(error){
-        localUserId = ""
-    }
+    const localUserId = (JSON.parse(localStorage.getItem('user'))).id
     if(chats.UserId === localUserId){
+        chats.User.username = "You"
         msg.classList = ('myChats chatting')
         msgName.classList = ('myName hidden toolTip')
     }else{
         msg.classList = ('otherChats chatting')
         msgName.classList = ('otherName hidden toolTip')
     }
+    msg.innerHTML =  `${chats.chat}`
+    msgName.innerHTML =  `${chats.User.username} | ${new Date(chats.createdAt).toLocaleTimeString('en-GB',
+    {hour: '2-digit', minute:'2-digit'})} | 
+    ${new Date(chats.createdAt).toLocaleDateString('en-GB',{ year: 'numeric', year:'2-digit', month: 'short', day: 'numeric' })}`
+    
     otherChats.appendChild(msg)
     otherChats.appendChild(msgName)
     otherChats.scrollIntoView(false)
-})
+}
 
 async function renderChats () {
     otherChats.innerHTML = ""
@@ -99,31 +98,6 @@ async function renderChats () {
         })
     })
     .catch(console.error)
-}
-
-function addChat(chats){
-    const msg = document.createElement('li')
-    const msgName = document.createElement('li')
-    msg.innerHTML =  `${chats.chat}`
-    msgName.innerHTML =  `${chats.User.username} | ${new Date(chats.createdAt).toLocaleTimeString('en-GB',
-    {hour: '2-digit', minute:'2-digit'})} | 
-    ${new Date(chats.createdAt).toLocaleDateString('en-GB',{ year: 'numeric', year:'2-digit', month: 'short', day: 'numeric' })}`
-    let localUserId 
-    try{
-        localUserId =  (JSON.parse(localStorage.getItem('user'))).id
-    }catch(error){
-        localUserId = ""
-    }
-    if(chats.UserId === localUserId){
-        msg.classList = ('myChats chatting')
-        msgName.classList = ('myName hidden toolTip')
-    }else{
-        msg.classList = ('otherChats chatting')
-        msgName.classList = ('otherName hidden toolTip')
-    }
-    otherChats.appendChild(msg)
-    otherChats.appendChild(msgName)
-    otherChats.scrollIntoView(false)
 }
 
 function getUser(){
