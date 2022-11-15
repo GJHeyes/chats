@@ -13,17 +13,6 @@ chatForm.addEventListener('submit', function (event) {
         chat = formData.get('chat'),
         user = JSON.parse(localStorage.getItem("user")),
         body = JSON.stringify({chat, status: 0,UserId: user.id, User: localStorage.getItem("user")});
-    // fetch('/chats', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: body
-    // })
-    // .then(res => res.json())
-    // .then(chat => {
-    //     event.target.reset()
-    // })
     ws.send(body)
     
     event.target.reset()
