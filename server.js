@@ -51,7 +51,8 @@ app.ws('/chats', (ws, req) => {
 
 app.post('/users', async (req, res) => {
     const previousUser = await User.findByPk(req.body.userID)
-    if(previousUser){
+    console.log(previousUser.username === req.body.username)
+    if(previousUser.username === req.body.username){
         previousUser.update({username: req.body.username})
         res.send(previousUser)
     }else{
