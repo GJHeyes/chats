@@ -5,17 +5,7 @@ const ws = new WebSocket(wsUrl),
     userForm = document.getElementById('user'),
     userMain = document.getElementById('userName'),
     main = document.getElementById('main');
-    ws.onopen = function () {
-        var t = setInterval(function(){
-            if (ws.readyState != 1) {
-                clearInterval(t);
-                return;
-            }
-            ws.send('{type:"ping"}');
-        }, 55000);
-    };
 
-    
 chatForm.addEventListener('submit', function (event) {
     
     event.preventDefault()
