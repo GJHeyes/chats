@@ -1,11 +1,11 @@
 const wsUrl = window.location.origin.includes('localhost') ? "ws://localhost:3000/chats" : "wss://newmessenger.onrender.com"
-const ws = new WebSocket(wsUrl),
+const ws = new WebSocket("wss://newmessenger.onrender.com"),
     chatForm = document.getElementById('chat'),
     otherChats = document.getElementById('chats'),
     userForm = document.getElementById('user'),
     userMain = document.getElementById('userName'),
     main = document.getElementById('main');
-
+console.log(wsUrl)
 chatForm.addEventListener('submit', function (event) {
     
     event.preventDefault()
