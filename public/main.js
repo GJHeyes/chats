@@ -1,4 +1,4 @@
-const wsUrl = window.location.origin.includes('localhost') ? "ws://localhost:3000/chats" : "wss://messenger-bykh.onrender.com/chats"
+const wsUrl = window.location.origin.includes('localhost') ? "ws://localhost:3000/chats" : "wss://mymessenger.onrender.com"
 const ws = new WebSocket(wsUrl),
     chatForm = document.getElementById('chat'),
     otherChats = document.getElementById('chats'),
