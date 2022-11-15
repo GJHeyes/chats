@@ -41,8 +41,8 @@ form {
     flex-direction: column;
     list-style-type: none; 
     margin: 0 !important;
-    padding-top:5px !important;
-    padding-bottom:5px !important;
+    padding-top:2.5% !important;
+    padding-bottom:2.5% !important;
 }
 #myChats{
     margin-left: 40px;
