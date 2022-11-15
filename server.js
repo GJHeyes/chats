@@ -38,12 +38,13 @@ app.post('/chats', async (req, res) => {
 app.ws('/chats', (ws, req) => {
     ws.on('message', async _msg => {
         const msg = JSON.parse(_msg)
-        console.log(msg)
+        const userWare = JSON.parse(msg.User)
+        msg.User = userWare
         const user = await User.findByPk(msg.UserId)
         const chat = await Chat.create(msg)
         await user.addChat(chat)
         expressWs.getWss().clients.forEach(client => {
-            client.send(JSON.stringify(chat))
+            client.send(JSON.stringify({chatInfo: chat, userData: msg}))
         })
     })
 })
