@@ -4,6 +4,8 @@ const otherChats = document.getElementById('chats')
 const userForm = document.getElementById('user')
 const userMain = document.getElementById('userName')
 const main = document.getElementById('main')
+const chatTools = document.getElementsByClassName('otherChats')
+const chatHolder = document.createElement('div')
 
 chatForm.addEventListener('submit', function (event) {
     
@@ -75,8 +77,10 @@ function renderChats () {
     .then(res => res.json())
     .then(users => {
         users.forEach(chats => {
-            const li = document.createElement('li')
-            li.innerHTML = `${chats.chat}`
+            const chat = document.createElement('li')
+            chat.innerHTML = `${chats.chat}`
+            const chatToolTip = document.createElement('li')
+
             let localUserId 
             try{
                 localUserId = (JSON.parse(localStorage.getItem('user'))).id
@@ -84,11 +88,15 @@ function renderChats () {
                 localUserId = ""
             }
             if(chats.UserId === localUserId){
-                li.classList = ('myChats chatting')
+                chatHolder.classList.add('myChats')
+                chatToolTip.classList = ('toolTipRight hidden')
             }else{
-                li.classList = ('otherChats chatting')
+                chatHolder.classList.add('otherChats')
+                chatToolTip.classList = ('toolTipLeft hidden')
             }
-            otherChats.appendChild(li)
+            chat.classList.add('chatting')
+            chatHolder.append(chat,chatToolTip)
+            otherChats.appendChild(chatHolder)
             otherChats.scrollIntoView(false)
         })
     })
@@ -103,6 +111,10 @@ function getUser(){
         main.classList.remove('hidden')
     }
 }
+
+chatTools.addEventListener('click', ()=>{
+    chatHolder.classList.toggle('hidden')
+})
 
 getUser()
 

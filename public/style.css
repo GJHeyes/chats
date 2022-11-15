@@ -118,6 +118,7 @@ form {
     padding-left: 10px;
 }
 
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: rgba(255, 255, 255, 0.719);
    /* Firefox */
