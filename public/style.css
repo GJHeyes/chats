@@ -176,6 +176,7 @@ form {
     background-color:#b4b4bcaf;
     height: 30px;
     font-size: 15px;
+    align-self: flex-end !important;
     border-top-right-radius: 0px !important;
     -webkit-border-right-left-radius: 0px !important;
     -moz-border-radius-topright: 0px !important;
@@ -202,4 +203,32 @@ form {
     display: flex;
     height: calc(100vh - 90px);
     flex-direction: column;
+}
+
+@media (max-width: 480px){
+    #channel {
+        height: 80%;
+        width: 90%;
+        margin-bottom: 1vh !important;
+        margin-top: 1vh !important;
+    }
+    .chatting{
+        font-size: 3.5vw;
+    }
+    .toolTip{
+        font-size: 2.5vw;
+    }
+    #chat{
+        width: 90%
+    }
+    #title{
+        margin-top: 5vh !important;
+    }
+    #user-input{
+        width: 100%
+    }
+    #user{
+        width: 80%;
+    }
+
 }
