@@ -12,36 +12,24 @@ chatForm.addEventListener('submit', function (event) {
         chat = formData.get('chat'),
         user = JSON.parse(localStorage.getItem("user")),
         body = JSON.stringify({chat, status: 0,UserId: user.id});
-    fetch('/chats', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: body
-    })
-    .then(res => res.json())
-    .then(chat => {
-        event.target.reset()
-    })
+    // fetch('/chats', {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: body
+    // })
+    // .then(res => res.json())
+    // .then(chat => {
+    //     event.target.reset()
+    // })
     ws.send(body)
     
     event.target.reset()
     
 })
 
-ws.addEventListener('message', chat => {
-    const el = document.createElement('li'),
-        chatData = JSON.parse(chat.data),
-        localUserId = (JSON.parse(localStorage.getItem('user'))).id;
-    el.innerHTML = chatData.chat
-    if(chatData.UserId === localUserId){
-        el.classList = ('myChats chatting')
-    }else{
-        el.classList = ('otherChats chatting')
-    }
-    otherChats.appendChild(el)
-    otherChats.scrollIntoView(false)
-})
+
 
 userForm.addEventListener('submit', function (event) {
     event.preventDefault()
@@ -70,37 +58,45 @@ userForm.addEventListener('submit', function (event) {
     renderChats()
 })
 
-function renderChats () {
+ws.addEventListener('message', chat => {
+    addChat(chat)
+})
+
+async function renderChats () {
     otherChats.innerHTML = ""
     fetch('/chats')
     .then(res => res.json())
     .then(users => {
         users.forEach(chats => {
-            const msg = document.createElement('li')
-            const msgName = document.createElement('li')
-            msg.innerHTML = `${chats.chat}`
-            msgName.innerHTML = `${chats.User.username} | ${new Date(chats.createdAt).toLocaleTimeString('en-GB',
-            {hour: '2-digit', minute:'2-digit'})} | 
-            ${new Date(chats.createdAt).toLocaleDateString('en-GB',{ year: 'numeric', year:'2-digit', month: 'short', day: 'numeric' })}`
-            let localUserId 
-            try{
-                localUserId = (JSON.parse(localStorage.getItem('user'))).id
-            }catch(error){
-                localUserId = ""
-            }
-            if(chats.UserId === localUserId){
-                msg.classList = ('myChats chatting')
-                msgName.classList = ('myName hidden toolTip')
-            }else{
-                msg.classList = ('otherChats chatting')
-                msgName.classList = ('otherName hidden toolTip')
-            }
-            otherChats.appendChild(msg)
-            otherChats.appendChild(msgName)
-            otherChats.scrollIntoView(false)
+            addChat(chats)
         })
     })
     .catch(console.error)
+}
+
+function addChat(chats){
+    const msg = document.createElement('li')
+    const msgName = document.createElement('li')
+    msg.innerHTML =  `${chats.chat}`
+    msgName.innerHTML =  `${chats.User.username} | ${new Date(chats.createdAt).toLocaleTimeString('en-GB',
+    {hour: '2-digit', minute:'2-digit'})} | 
+    ${new Date(chats.createdAt).toLocaleDateString('en-GB',{ year: 'numeric', year:'2-digit', month: 'short', day: 'numeric' })}`
+    let localUserId 
+    try{
+        localUserId =  (JSON.parse(localStorage.getItem('user'))).id
+    }catch(error){
+        localUserId = ""
+    }
+    if(chats.UserId === localUserId){
+        msg.classList = ('myChats chatting')
+        msgName.classList = ('myName hidden toolTip')
+    }else{
+        msg.classList = ('otherChats chatting')
+        msgName.classList = ('otherName hidden toolTip')
+    }
+    otherChats.appendChild(msg)
+    otherChats.appendChild(msgName)
+    otherChats.scrollIntoView(false)
 }
 
 function getUser(){
