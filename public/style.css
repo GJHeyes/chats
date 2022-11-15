@@ -20,7 +20,7 @@ body{
     height: 100%;
     margin: auto;
     width: 50%;
-    background-color: #b4b4bc7e;
+    background-color: #b4b4bcaf;
     overflow:auto;
     justify-content:flex-start;
     flex-direction: column;
@@ -34,7 +34,6 @@ form {
     width: 50%;  
     display: flex;
     justify-content: center;
-    justify-content: space-between;
 }
 .chat{
     width:100%;
@@ -55,7 +54,7 @@ form {
 }
 .myChats{
     align-self: flex-end;
-    background-color: #2294fb7e; 
+    background-color: #2294fbaf; 
     border-bottom-right-radius: 0px !important;
     -webkit-border-bottom-right-radius: 0px !important;
     -moz-border-radius-bottomright: 0px !important;
@@ -71,11 +70,12 @@ form {
     padding: 5px;
     width: fit-content;
     height: fit-content;
-    color: white;
+    color: rgba(255, 255, 255, 0.719);
     overflow-wrap: break-word;
+    font-size: 1.5vw;
 }
 .otherChats{
-    background-color:#7474747e;
+    background-color:#747474af;
     border-bottom-left-radius: 2px;
     border-bottom-left-radius: 0px !important;
     -webkit-border-bottom-left-radius: 0px !important;
@@ -83,13 +83,11 @@ form {
 
 }
 .chatButton{
-    background-color: #2294fb7e; 
+    background-color: #2294fbaf; 
     height: 30px !important;
     width: 30px !important;
-    color: white;
+    color: rgba(255, 255, 255, 0.719);
     border-radius: 50px;
-    width: fit-content;
-    height: fit-content;
     padding-bottom:1px;
     border-style: none;
     align-self: flex-end;
@@ -104,6 +102,7 @@ form {
 
 }
 .chatText{
+    color: rgba(255, 255, 255, 0.719);
     width:100%;
     height: 30px;
     margin-top: 10px;
@@ -118,6 +117,19 @@ form {
     -moz-border-radius-bottomright: 0px !important;
     padding-left: 10px;
 }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(255, 255, 255, 0.719);
+   /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgba(255, 255, 255, 0.719);
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: rgba(255, 255, 255, 0.719);
+  }
 .hidden{
     display: none !important;
     height: 0vh !important;
@@ -133,10 +145,10 @@ form {
     align-items: flex-end !important;
 }
 #user-input{
-    width:100%;
+    width:50%;
     border-radius: 10px;
     border-style: none;
-    background-color:#b4b4bc7e;
+    background-color:#b4b4bcaf;
     height: 30px;
     font-size: 15px;
     border-top-right-radius: 0px !important;
@@ -146,13 +158,15 @@ form {
     -webkit-border-bottom-right-radius: 0px !important;
     -moz-border-radius-bottomright: 0px !important;
     padding-left: 10px;
+    color: rgba(255, 255, 255, 0.719);
+    align-self: center;
 }
 
 #title{
     /*c2 transparency*/
     display: flex;
     justify-content: center;
-    color:#7474747e;
+    color:#747474af;
     font-size: 40px;
     margin: 10px !important;
     font-family:'Courier New', Courier, monospace;

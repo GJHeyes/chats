@@ -98,9 +98,6 @@ function renderChats () {
 function getUser(){
     const user = localStorage.getItem("user")
     if(user){
-        const myUser = JSON.parse(user)
-        const input = document.getElementById("user-input")
-        input.value = myUser.username
         userForm.classList.add('hidden')
         userMain.classList.add('hidden')
         main.classList.remove('hidden')
