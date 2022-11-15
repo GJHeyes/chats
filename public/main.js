@@ -79,9 +79,9 @@ function renderChats () {
             const msg = document.createElement('li')
             const msgName = document.createElement('li')
             msg.innerHTML = `${chats.chat}`
-            msgName.innerHTML = `${chats.User.username} @ ${new Date(chats.createdAt).toLocaleTimeString('en-GB',
-            {hour: '2-digit', minute:'2-digit'})} on 
-            ${new Date(chats.createdAt).toLocaleDateString('en-GB',{ year: 'numeric', month: 'long', day: 'numeric' })}`
+            msgName.innerHTML = `${chats.User.username} | ${new Date(chats.createdAt).toLocaleTimeString('en-GB',
+            {hour: '2-digit', minute:'2-digit'})} | 
+            ${new Date(chats.createdAt).toLocaleDateString('en-GB',{ year: 'numeric', year:'2-digit', month: 'short', day: 'numeric' })}`
             let localUserId 
             try{
                 localUserId = (JSON.parse(localStorage.getItem('user'))).id

@@ -24,7 +24,7 @@ body{
     overflow:auto;
     justify-content:flex-start;
     flex-direction: column;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 ol{
     padding-inline-start: 0px !important;
@@ -66,8 +66,8 @@ form {
     max-width: 40%;
     padding: 10px;
     margin: 2px;
-    border-radius: 5px;
-    padding: 5px;
+    border-radius: 25px;
+    padding: 10px;
     width: fit-content;
     height: fit-content;
     color: rgba(255, 255, 255, 0.7);
@@ -125,7 +125,7 @@ form {
     width:100%;
     height: 30px;
     margin-top: 10px;
-    border-radius: 10px;
+    border-radius: 50px;
     border-style: none;
     background-color:#b4b4bc7e;
     border-top-right-radius: 0px !important;
@@ -168,7 +168,7 @@ form {
 }
 #user-input{
     width:50%;
-    border-radius: 10px;
+    border-radius: 50px;
     border-style: none;
     background-color:#b4b4bcaf;
     height: 30px;
