@@ -200,6 +200,9 @@ form {
     font-size: 40px;
     margin: 10px !important;
     font-family:'Courier New', Courier, monospace;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 #main{
