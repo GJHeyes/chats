@@ -35,6 +35,10 @@ app.post('/chats', async (req, res) => {
     res.send(chat)
 })
 
+app.post('/typing',(ws,req)=>{
+    res.send("hello")
+})
+
 app.ws('/chats', (ws, req) => {
     ws.on('message', async _msg => {
         const msg = JSON.parse(_msg)

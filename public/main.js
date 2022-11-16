@@ -48,6 +48,21 @@ userForm.addEventListener('submit', function (event) {
     renderChats()
 })
 
+chatForm.addEventListener('keypress', ()=>{
+    fetch('/typing', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: "typing"
+    })
+    .then(console.log(res))
+})
+
+// ws.addEventListener('message', chat =>{
+//     console.log(chat)
+// })
+
 ws.addEventListener('message', chat => {
     let chats = JSON.parse(chat.data).chatInfo
     const user = JSON.parse(chat.data).userData.User
