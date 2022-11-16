@@ -27,7 +27,7 @@ app.get('/chats', async (req, res) => {
     const chats = await Chat.findAll({include: {model: User, required:true}})
     res.send(chats)
 })
-
+//do I even need this?
 app.post('/chats', async (req, res) => {
     const user = await User.findByPk(req.body.UserId)
     const chat = await Chat.create(req.body)

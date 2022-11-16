@@ -1,0 +1,4 @@
+when key press check to see if the value of the chat does not equal "" or NULL or undefined
+then send that to the server with user date
+for each each client send the boolean back with user data
+if user not does equal local user unhide the message typing (this has a fixed(local)position)
