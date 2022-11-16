@@ -241,6 +241,10 @@ form {
         height: -webkit-fill-available;
     }
     #title{
+        position: -webkit-sticky;
+        position: -moz-sticky;
+        position: -o-sticky;
+        position: -ms-sticky;
         position: sticky;
     }
     .chatButton{
