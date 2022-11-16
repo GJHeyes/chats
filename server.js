@@ -51,7 +51,10 @@ app.ws('/chats', (ws, req) => {
 
 app.post('/users', async (req, res) => {
     const previousUser = await User.findOne({ where: { id: req.body.userID} })
-    if(previousUser !== null && JSON.stringify(previousUser.username).toLowerCase() === JSON.stringify(req.body.username).toLowerCase()){
+    console.log(JSON.stringify(previousUser.createdAt))
+    console.log(JSON.stringify(JSON.parse(req.body.User).createdAt))
+    if(previousUser !== null /*Unable to change name --&& JSON.stringify(previousUser.username).toLowerCase() === JSON.stringify(req.body.username).toLowerCase()*/
+    && JSON.stringify(previousUser.createdAt) === JSON.stringify(JSON.parse(req.body.User).createdAt)){
         previousUser.update({username: req.body.username})
         res.send(previousUser)
     }else{

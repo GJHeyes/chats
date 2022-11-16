@@ -36,7 +36,7 @@ userForm.addEventListener('submit', function (event) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({username, status: 0,userID: localUserId})
+        body: JSON.stringify({username, status: 0,userID: localUserId, User: localStorage.getItem('user')})
     })
     .then(res => res.json())
     .then(user =>{
