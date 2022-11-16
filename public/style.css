@@ -197,7 +197,7 @@ form {
     justify-content: center;
     color:#747474af;
     font-size: 40px;
-    margin: 10px !important;
+    margin-top: 10px !important;
     font-family:'Courier New', Courier, monospace;
 }
 
@@ -242,10 +242,10 @@ form {
     }
     #title{
         position: -webkit-sticky;
-        position: -moz-sticky;
-        position: -o-sticky;
-        position: -ms-sticky;
-        position: sticky;
+    position: -moz-sticky;
+    position: -o-sticky;
+    position: -ms-sticky;
+    position: sticky;
     }
     .chatButton{
         align-self: auto;
